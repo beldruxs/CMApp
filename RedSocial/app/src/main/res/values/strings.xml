@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Red Social</string>
+    <string name="LoginBtn">Login</string>
+    <string name="RegistrarBtn">Registrarme</string>
+
+    <string name="RegistroTxt">REGISTRO</string>
+    <string name="Correo">Correo</string>
+    <string name="Password">Contraseña</string>
+    <string name="Nombres">Nombre</string>
+    <string name="Apellidos">Apellidos</string>
+    <string name="Telefono">Telefono</string>
+    <string name="RegistrarUsuario">REGISTRAR</string>
+
+    <string name="CorreoLogin">Correo electrónico</string>
+    <string name="PasswordLogin">Contraseña</string>
+    <string name="INGRESAR">LOGIN</string>
+</resources>
