@@ -123,7 +123,7 @@ public class HomeFragment extends Fragment {
                 for (DataSnapshot ds: dataSnapshot.getChildren()){
                     ModelPost modelPost = ds.getValue(ModelPost.class);
 
-                    if (!modelPost.getpTitle().toLowerCase().contains(searchQuery.toLowerCase()) ||
+                    if (modelPost.getpTitle().toLowerCase().contains(searchQuery.toLowerCase()) ||
                             modelPost.getpDescripcion().toLowerCase().contains(searchQuery.toLowerCase())){
                         postList.add(modelPost);
                     }
@@ -171,33 +171,33 @@ public class HomeFragment extends Fragment {
         inflater.inflate(R.menu.menu_main,menu);
 
         //searchview to search posts
-        //MenuItem item = menu.findItem(R.id.action_search);
-        //SearchView searchView = (SearchView) MenuItemCompat.getActionView(item);
+        MenuItem item = menu.findItem(R.id.search);
+        SearchView searchView = (SearchView) item.getActionView();
 
         //search listener
-    //    searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-    //        @Override
-    //        public boolean onQueryTextSubmit(String s) {
-    //            //press search button
-    //            if (!TextUtils.isEmpty(s)){
-    //                searchPosts(s);
-    //            }else{
-    //                loadPosts();
-    //            }
-    //            return false;
-    //        }
-//
-    //        @Override
-    //        public boolean onQueryTextChange(String s) {
-    //            //press any letter
-    //            if (!TextUtils.isEmpty(s)){
-    //                searchPosts(s);
-    //            }else{
-    //                loadPosts();
-    //            }
-    //            return false;
-    //        }
-    //    });
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                //press search button
+                if (!TextUtils.isEmpty(s.trim())){
+                    searchPosts(s);
+                }else{
+                    loadPosts();
+                }
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                //press any letter
+                if (!TextUtils.isEmpty(s)){
+                    searchPosts(s);
+                }else{
+                    loadPosts();
+                }
+                return false;
+            }
+        });
 
         super.onCreateOptionsMenu(menu, inflater);
     }
