@@ -107,7 +107,7 @@ public class AddPostActivity extends AppCompatActivity {
 
         //obtenemos informacion del usuario para incluirlo en el post
         userDbRef = FirebaseDatabase.getInstance().getReference("USUARIOS_APP");
-        Query query = userDbRef.orderByChild("email").equalTo(email);
+        Query query = userDbRef.orderByChild("correo").equalTo(email);
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
